@@ -1,0 +1,16 @@
+{
+  "records": [
+    {
+      "time": 1
+    },
+    {
+      "time": 2
+    },
+    {
+      "time": 3,
+      "name": "FASF"
+    }
+  ],
+  "totalGames": 9,
+  "winners": 3
+}
