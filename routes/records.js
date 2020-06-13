@@ -41,9 +41,14 @@ router.post('/winner', (req, res, next) => {
   const player = db.get('records')
     .push({ time: winners + 1, name: req.body.name})
     .write()
+  const response = {
+    records: db.get('records').orderBy('time', 'desc').value(),
+    totalGames: db.get('totalGames').value(),
+    winners: db.get('winners').value()
+  }
   res.statusCode = 200;
   res.setHeader('Content-Type', 'application/json');
-  res.json(player);
+  res.json(response);
 });
 
 module.exports = router;
