@@ -34,7 +34,9 @@ router.route('/')
   res.json(games);
 })
 
-router.post('/winner', (req, res, next) => {
+router.route('/winner')
+.options(cors.cors, (req, res) => { res.sendStatus(200); })
+.post(cors.cors, (req, res, next) => {
   var winners = parseInt(db.get('winners').value());
   db.update('winners', n => winners + 1)
   .write()
